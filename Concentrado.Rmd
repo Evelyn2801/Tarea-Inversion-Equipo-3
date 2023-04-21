@@ -29,9 +29,9 @@ options(knitr.duplicate.label = "allow")
 ```
 
 
-# Ejercicios teóricos de consumo 
+# Ejercicio 1
 
-```{r child = 'Pregunta 8.3.Rmd'}
+```{r child = 'Ejercicio 1.Rmd'}
 ```
 
 ```{r child = 't2e1.Rmd'}
