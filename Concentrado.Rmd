@@ -1,0 +1,68 @@
+---
+title: "Equipo 3"
+subtitle: "Tarea 2: Consumo"
+author: 
+  - Maria Isabel Cabrales Soria 
+  - Jesus Enrique Corona Zetina 
+  - Evelyn Hernández Melchor 
+  - Mario Alonso Lechuga Calderón
+date: ""
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 2
+tables: true
+toc-title: Contenido
+urlcolor: blue
+header-includes:
+   - \usepackage[nottoc]{tocbibind} \usepackage{graphicx} \usepackage{amsmath} \usepackage{fancyhdr} \pagestyle{fancy} \usepackage{enumitem} \usepackage[spanish]{babel}
+---
+\newpage 
+ 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(tinytex)
+library(ggplot2)
+options(knitr.duplicate.label = "allow")
+```
+
+
+# Ejercicios teóricos de consumo 
+
+```{r child = 'Pregunta 8.3.Rmd'}
+```
+
+```{r child = 't2e1.Rmd'}
+```
+
+```{r child = '8.7 tarea 2.Rmd'}
+```
+
+```{r child = 'Ej_8.8.Rmd'}
+```
+\newpage
+```{r child = 'Tarea macro. Pregunta 2.1.Rmd'}
+```
+
+\newpage
+```{r child = 'Problema 3 TAREA 2_b.Rmd'}
+```
+
+\newpage
+```{r child = 't2e4.Rmd'}
+```
+
+\newpage
+```{r child = 't2e5.Rmd'}
+```
+
+\newpage
+```{r child = 'Ejercicio_6.Rmd'}
+```
+
+\newpage
+```{r child = 't2e7.Rmd'}
+```
+
