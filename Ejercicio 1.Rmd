@@ -10,8 +10,8 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-**9.5 Solucionar, utilizando el cálculo de variaciones, el problema al que se enfrenta el planificador social en el modelo de Ramsey. Considere el problema del planificador social que analizamos en la Secc1on 2.4: el plan1f1cador pretende maximizar** 
+#Ejercicio 1
+**9.5 Solucionar, utilizando el cálculo de variaciones, el problema al que se enfrenta el planificador social en el modelo de Ramsey. Considere el problema del planificador social que analizamos en la Secc1on 2.4: el plan1f1cador pretende maximizar**
 
 $$\int_{t=0}^{\infty}e^{-\beta t}\frac{c(t)^{1- \theta}}{1- \theta}dt$$
 
