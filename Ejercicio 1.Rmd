@@ -1,0 +1,363 @@
+---
+title: "Ejercicio 1"
+author: "Isabel Cabrales Soria"
+date: "2023-04-20"
+output: pdf_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+**9.5 Solucionar, utilizando el cálculo de variaciones, el problema al que se enfrenta el planificador social en el modelo de Ramsey. Considere el problema del planificador social que analizamos en la Secc1on 2.4: el plan1f1cador pretende maximizar** 
+
+$$\int_{t=0}^{\infty}e^{-\beta t}\frac{c(t)^{1- \theta}}{1- \theta}dt$$
+
+
+**a) ¿Cuál es el hamiltoniano del valor presente? ¿Cuáles son las variables de control, la variable estado y la variable coestado?**
+
+Sabemos que el problema del planificador es maximizar el valor descontado de la utilidad de por vida para el hogar representativo, esto se puede expresar como:
+
+\begin{equation}
+    \int_{t=0}^{\infty} e^{-\beta t} \frac{c(t)^{1-\theta}}{1-\theta} dt
+\end{equation}
+
+Sujeto a la ecuación de acumulación de capital dada por:
+
+\begin{equation}
+  \dot{K}(t)=fk(t)=f(k(t))-c(t)-(n + g)k(t)
+\end{equation}
+
+La variable de control es la variable que puede ser controlada libremente por el planificador, el consumo por unidad de trabajo efectivo, c(t).
+
+La variable de estado es la variable que tiene la propiedad de que su valor en cualquier momento está determinado por las decisiones pasadas del planificador. En este caso, esa variable es el capital por unidad de trabajo efectivo, k(t). 
+
+El valor en sombra de la variable de estado es la variable de costo, denotada por $\mu(t)$.
+
+El Hamiltoniano de valor actual es, por lo tanto, el siguiente:
+
+\begin{equation}
+H(k(t),c(t))=\frac{c(t)^{1-\theta}}{1-\theta}+\mu (t) [fk(t)=f(k(t))-c(t)-(n + g)k(t)]
+\end{equation}
+
+**b) Halle las tres condiciones que caracterizan al comportamiento óptimo análogas a las ecuaciones (9.22), (9.22) y (9.23) de la Sección 9.2.**
+
+Para caracterizar un comportamiento óptimo, la primera condición es que la derivada del hamiltoniano con respecto a la variable de control en cada punto es cero, de esta manera tenemos la siguiente expresión:
+
+\begin{equation}
+\frac{\partial H(k(t),c(t))}{\partial c(t)}=c(t)^{-\theta}-\mu(t)=0
+\end{equation}
+
+La segunda condición es que la derivada del Hamiltoniano con respecto a la variable de estado sea igual a la tasa de descuento multiplicada por la variable de costo, menos la derivada de la variable de costo con respecto al tiempo. En nuestro caso:
+\begin{equation}
+\frac{\partial H(k(t),c(t))}{\partial c(t)}=\mu (t)f'(k(t))-\mu(t)(n+g)=\beta \mu(t)- \dot{\mu}(t)
+\end{equation}
+La siguiente condición se denomina "condición de transversalidad" en el tiempo continuo.
+Esta condición establece que el límite del producto de la variable de costo descontada y la variable de estado debe ser cero. En nuestro modelo, esta condición se ve como sigue:
+
+\begin{equation}
+lim_{t \to \infty} e^{-\beta t} \mu (t)k(t) = 0
+\end{equation}
+
+**c) Demuestre que las dos primeras condiciones de la parte b del problema, junto con el hecho de que f'(k(t)) =r(t), implican la ecuación de Euler (ecuación [9.20]).**
+
+Tomando en cuenta la ecuación (4) y despejando $\mu(t)$:
+
+\begin{equation}
+\mu(t)=c(t)^{-\theta}
+\end{equation}
+
+Ahora, tomemos la derivada de ambos lados de la ecuación:
+
+$$\dot{\mu}(t)={-\theta}c(t)^{-\theta-1}\dot{c}(t)$$
+Sustituimos $\dot{c}(t)$:
+
+\begin{equation}
+\dot{\mu}(t)=-\theta c(t)^{-\theta}\frac{\dot{c}(t)}{c(t)}
+\end{equation}
+
+Ahora, utilizamos la ecuación (5), despejando $\dot{\mu}(t)$:
+
+\begin{equation}
+\dot{\mu}(t)=\beta \mu(t)-\mu (t)f'(k(t))+\mu(t)(n+g)
+\end{equation}
+
+Factorizamos términos comunes:
+
+\begin{equation}
+\dot{\mu}(t)=\mu(t)[\beta-f'(k(t))+(n+g)]
+\end{equation}
+
+Igualamos ecuaciones (9) y (10):
+
+\begin{equation}
+-\theta c(t)^{-\theta}\frac{\dot{c}(t)}{c(t)}=\mu(t)[\beta-f'(k(t))+(n+g)]
+\end{equation}
+
+En la ecuación 7, obtuvimos $\mu(t)$. Sustituimos en (10) para obtener:
+
+\begin{equation}
+-\theta c(t)^{-\theta}\frac{\dot{c}(t)}{c(t)}=c(t)^{-\theta}[\beta-f'(k(t))+(n+g)]
+\end{equation}
+
+Dividimos ambos lados entre $-c(t)^{-\theta}\theta$ y obtenemos:
+
+\begin{equation}
+\frac{\dot{c}(t)}{c(t)}=\frac{[\beta-f'(k(t))+(n+g)]}{-\theta}
+\end{equation}
+
+Sustituimos $\beta \equiv \rho-n-(1- \theta)g$:
+
+\begin{equation}
+\frac{\dot{c}(t)}{c(t)}=\frac{[(\rho-n-(1- \theta)g)-f'(k(t))+(n+g)]}{-\theta}
+\end{equation}
+
+Sustituimos  f '(k(t)) = r(t)
+\begin{equation}
+\frac{\dot{c}(t)}{c(t)}=\frac{[(\rho-n-(1- \theta)g)-r(t)+(n+g)]}{-\theta}
+\end{equation}
+
+Simplificamos:
+
+\begin{equation}
+\frac{\dot{c}(t)}{c(t)}=\frac{r(t)-\rho-\theta(g)}{-\theta}
+\end{equation}
+
+La cual es idéntica a la ecuación de Euler en el  equilibrio descentralizado.
+
+**d) Sea $\mu$ la variable coestado. Demuestre que $\dot{\mu}(t)/\mu(t)-\beta=(n + g)-r(t)$ y, por tanto, que $e^{-\beta t}\mu (t)$ es proporcional a $e^{-R(t)}e^{(n+g)t}$ Demuestre, además, que esto significa que la condición de transversalidad de la parte b se cumple si, y sólo si, la igualdad de la  restricción presupuestaria (ecuación [2.16]) también se cumple.**
+
+Utilizando la ecuación 10, y dividiéndola entre $\mu(t)$ (sabemos además que f '(k(t)) = r(t))
+\begin{equation}
+\frac{\dot{\mu}(t)}{\mu(t)}=[\beta-r(t)+(n+g)]
+\end{equation}
+
+Note que la ecuación se puede escribir como:
+\begin{equation}
+\frac{\partial{\mu}(t)}{\partial (t)}=[\beta-r(t)+(n+g)]
+\end{equation}
+
+Integrando ambos lados de la ecuación en el intervalo $\tau=0$ al tiempo $\tau=t$:
+
+\begin{equation}
+ln\mu (t)- ln\mu (0)=[\beta+(n+g)]\tau\bigg\vert_{\tau=t}^{\tau=0}-\int_{t}^{\tau=0} r(\tau)d\tau
+\end{equation}
+
+
+Evaluando en los límites de $[\beta+(n+g)]\tau\bigg\vert_{\tau=t}^{\tau=0}$ tenemos que:
+
+\begin{equation}
+ln\mu (t)- ln\mu (0)=\beta(t)+(n+g)t-\int_{t}^{\tau=0} r(\tau)d\tau
+\end{equation}
+
+Despejando $ln\mu (t)$ y sea: $R(t)= \int_{t}^{\tau=0} r(\tau)d\tau$:
+
+\begin{equation}
+ln\mu (t)=ln\mu (0)+\beta(t)+(n+g)t-R(t)
+\end{equation}
+
+Y, para eliminar los logaritmos, utilizamos la exponencial, dando como resultado:
+
+\begin{equation}
+\mu(t)=\mu (0)e^{\beta(t)}e^{(n+g)t}e^{-R(t)}
+\end{equation}
+
+
+Dividiendo entre $e^{\beta(t)}$:
+
+\begin{equation}
+\mu(t)e^{-\beta(t)}=\mu (0)e^{(n+g)t}e^{-R(t)}
+\end{equation}
+
+Lo cual indica que $e^{-\beta(t)}$ es proporcional a $e^{(n+g)t}e^{-R(t)}$
+
+Esto implica que nuestra condición de transversalidad, indicada anteriormente, puede verse como sigue:
+
+\begin{equation}
+lim_{t \to \infty} e^{(n+g)t}e^{-R(t)}k(t)=0
+\end{equation}
+
+De la ecuación 2.16 en el libro, de acuerdo con el problema de maximización de los hogares, la restricción presupuestara, resulta: 
+\begin{equation}
+lim_{t \to \infty} e^{(n+g)t}e^{-R(t)}k(t) \geq 0
+\end{equation}
+
+En resumen, al comparar las ecuaciones (24) y (25) en el modelo de Ramsey, se puede demostrar que la condición de transversalidad solo se cumplirá si la restricción presupuestaria se cumple con igualdad. Al cumplir con esta condición, se demuestra que la solución del planificador social es la misma que la del equilibrio descentralizado, lo que implica que este último es eficiente en el sentido de Pareto. En otras palabras, la solución del equilibrio descentralizado maximiza la utilidad de los agentes y utiliza de manera óptima los recursos disponibles.
+
+
+**9.11 Suponga que $\pi(K)=a-bK$ y $C(I)=\alpha\frac{I^2}{2}$**
+
+**(a) ¿Dónde se hallaría la curva $\dot{q}= 0$? ¿Cuál es el valor de equilibrio a largo plazo de K?**
+
+Una de las condiciones para la optimización es que $\pi(K(t))$, es decir, el ingreso marginal del capital, sea igual a su costo de uso, $rq(t)- \dot{q}(t)$.
+La ecuación de movimiento para q, se obtiene reorganizando la condición, dejando:
+
+\setcounter{equation}{0}
+\begin{equation}
+\dot{q}(t) = rq(t) - \pi(K(t))
+\end{equation}
+
+Sustituyendo la función de beneficio, $\pi(K) = a - bK$, en la ecuación (1) tenemos:
+\begin{equation}
+\dot{q}(t) = rq(t) - a + bK(t)
+\end{equation}
+
+Por lo tanto, el lugar geométrico $\dot{q} = 0$ viene dado por:
+\begin{equation}
+rq - a + bK = 0
+\end{equation}
+
+o bien, podemos despejar q en función de K, dando como resultado:
+
+\begin{equation}
+q = \frac{(a - bK)}{r}
+\end{equation}
+
+De aquí, podemos ver que la pendiente del, el locus $\dot{q}= 0$ tiene una pendiente constante de $-b/r$.
+
+
+Si queremos encontrar el valor de equilibrio a largo plazo de K, necesitamos conocer el valor de la intersección del locus $\dot{q} = 0$, que vendrá dado por la ecuación (4)  y el $\dot{K}= 0$. El locus $\dot{K}= 0$ está dado por q = 1, lo que indica que ya sabemos que el valor de equilibrio a largo plazo de q, q* es uno. Entonce, podemos sustituir q = 1 en nuestra ecuación 4:
+
+\begin{equation}
+1 = \frac{(a - bK)}{r}
+\end{equation}
+
+y despejando K* podemos encontrar el valor de equilibrio de largo plazo para K:
+
+$$r= (a - bK)$$
+$$r-a= - bK$$
+
+\begin{equation}
+K^* = \frac{(a - r)}{b}
+\end{equation}
+
+**(b) ¿Cuál es la pendiente del sendereo de silla? (Sugerencia: Utilice el enfoque de la Sección 2.6.)**
+
+Ahora, para encontrar la pendiente de la trayectoria del camino de silla, primero necesitamos resolver la ecuación de movimiento de K(t). 
+
+Una de las condiciones para la optimización es que cada empresa invierta hasta el punto en el que el precio de compra del capital (que se fija en uno), más el costo marginal de ajuste, sea igual al valor del capital, q. 
+
+Asumiendo costos cuadráticos de ajuste, $C(\dot{\kappa}) = \alpha\dot{\kappa}^2/2$, el costo marginal de ajuste vendrá dado por:
+
+Para encontrar la pendiente de la trayectoria de la senda de crecimiento (camino de silla), primero necesitamos resolver la ecuación de movimiento de K(t). Una de las condiciones para la optimización es que cada empresa invierta hasta el punto en que el precio de compra del capital (que asumimos como uno), más el costo marginal de ajuste, sea igual al valor del capital, q. Asimismo, asumimos costos de ajuste cuadráticos, $C(\dot{\kappa}) = \alpha\dot{\kappa}^2/2$, por lo que el costo marginal de ajuste es 
+
+\begin{equation}
+\delta C(\dot{\kappa}))/\delta\dot{\kappa}= \alpha\dot{\kappa}
+\end{equation}
+
+
+Entonces,tenemos que 
+\begin{equation}
+q=1+\alpha\dot{\kappa}
+\end{equation}
+
+Resolviendo para $\dot{\kappa}$ obtenemos:
+\begin{equation}
+\dot{\kappa}=(q-1)/\alpha
+\end{equation}
+
+Como todas las empresas tienen la misma q, todas ellas deben elegir el mismo valor de inversión, $\dot{\kappa}$. Tenemos entonces que, la tasa de cambio del stock de capital agregado,$\dot{K}$, está dada por:
+\begin{equation}
+\dot{K}=N(q-1)/\alpha
+\end{equation}
+donde N es el número de empresas.
+
+Sea $\tilde{q}\equiv q-q^*$ y $\tilde{K}\equiv K- K^*$. Dado que q* y K* son constantes, $\dot{q}$ y $\dot{K}$ son equivalentes a $\dot{\tilde{q}}$ y $\dot{\tilde{K}}$, respectivamente. Asimismo, podemos reexpresar las ecuaciones (2) y (8) como: 
+
+
+ \begin{equation}
+ \dot{\tilde{q}}= rq-a+bK
+ \end{equation}
+ 
+\begin{equation}
+ \dot{\tilde{K}}= N(q-1)/\alpha
+\end{equation}
+ 
+ Ahora, dividiendo la primera ecuación entre $\tilde{q}$
+ \begin{equation}
+ \frac{\dot\tilde{q}}{\tilde{q}}=\frac{rq-a+bK}{\tilde{q}}
+\end{equation}
+
+Por $K^* = \frac{(a - r)}{b}$, tenemos que:
+
+\begin{equation}
+{\tilde{K}}=\frac{bK-a+r}{b} 
+ \end{equation}
+
+
+Resolviendo para bK:
+ \begin{equation}
+ bK=b\tilde{K}+a-r
+\end{equation}
+
+ 
+Sustituyendo la ecuacion anterior en (13), tenemos:
+ \begin{equation}
+\frac{\dot{\tilde{q}}}{\tilde{q}} = \frac{rq-a+b\tilde{K}+a-r}{\tilde{q}}=\frac{r(q-1)}{\tilde{q}}+\frac{b\tilde{K}}{\tilde{q}}=r+b\frac{\tilde{K}}{\tilde{q}}
+ \end{equation}
+donde q* = 1 de modo que $\tilde{q}\equiv q-q^*=q-1$
+
+Dividiendo ambos lados de la ecuación (13) por $\tilde{K}$ y notando que q*=1 tenemos:
+ \begin{equation}
+\frac{\dot{\tilde{K}}}{\dot{\tilde{K}}} = \frac{N}{\alpha} \frac{\tilde{q}}{\tilde{K}}   
+\end{equation}
+
+Las dos ecuaciones anteriores, implican que las tasas de crecimiento de $\tilde{q}$ y $\tilde{K}$ dependen solo del ratio entre ambas. Dado esto, ¿qué sucede si los valores de q y K, son tales que $\tilde{q}$ y $\tilde{K}$ están cayendo al mismo ritmo?
+
+Esto implica que la razón de $\tilde{q}$ a $\tilde{K}$ no está cambiando y, por ende, sus tasas de crecimiento tampoco. En términos de un diagrama de fase, desde un punto en el que $\tilde{q}$ y $\tilde{K}$ están cayendo a tasas iguales, la economía simplemente se mueve a lo largo de senda de equilibrio, en línea recta hacia (K*, q*) con su distancia cayendo a una tasa constante.
+
+Sea $\frac{\dot{\tilde{K}}}{\tilde{K}}=\mu$, podemos re expresar la última ecuación como :
+
+\begin{equation}
+\mu= \frac{N}{\alpha}\frac{\tilde{q}}{\tilde{K}} 
+\end{equation}
+o
+\begin{equation}
+\frac{\tilde{q}}{\tilde{K}}= \frac{\alpha \mu}{N}
+\end{equation}
+
+Por la ecuacion (16) tenemos que:
+
+\begin{equation}
+\mu = r+(bN/\alpha\mu)) 
+\end{equation}
+
+\begin{equation}
+\alpha\mu^2 - \alpha r\mu - bN=0
+\end{equation}
+
+Usando la formula general para resolver qué valores tenría $\mu$:
+
+\begin{equation}
+\mu= \frac{\alpha r \pm\sqrt{\alpha^2 r^2 + 4\alpha bN }}{2\alpha}= \frac{r \pm\sqrt{r^2 + (4bN/\alpha)}}{2}
+\end{equation}
+
+Si $\mu$ es positivo, entonces $\tilde{q}(t)\equiv q(t)-q^*$ y $\tilde{K}(t)\equiv K(t)-K^*$ están creciendo. Lo cual implica que en lugar de moverse a lo largo de una línea recta hacia (K*, q*), la economía se aleja del equilibrio. Por lo tanto, $\mu$ debe ser negativo. Descartaremos la solución que resultaría si tomamos en cuenta el signo positivo después de r. Es decir, únicamente veremos la solución de:
+
+\begin{equation}
+\mu = \frac{r - \sqrt{r^2 + (4bN/\alpha)}}{2}
+\end{equation}
+
+Esta ecuación servirá para sustituirla en $\tilde{q}/\tilde{K}= \alpha \mu/N$ para saber como deben estar relacionadas q y K en la senda de equilibrio y despejamos para q: 
+
+\begin{equation}
+\frac{\tilde{q}}{\tilde{K}} \equiv \frac{q- q^*}{K-K^*} =  \frac{\alpha\left[ r-\sqrt{r^2 +(4bN/\alpha)}\right]}{2N}
+\end{equation}
+
+Y resolviendo para q como función de K, obtenemos:
+\begin{equation}
+q=q^* + \alpha \left[ \frac{\left[ r-\sqrt{r^2 +(4bN/\alpha)}\right]}{2N}\right] (K-K^*)
+\end{equation}
+
+Por último, derivamos para encontrar la pendiente de la senda de equilibrio:
+
+\begin{equation}
+\frac{\delta q}{\delta K}=\alpha\left[\frac{r-\sqrt{r^2+ (4\alpha bN)/\alpha}}{2N}\right] < 0
+\end{equation}
+
+Dado que acotamos $\mu$ anteriormente, sabemos que la pendiente resulta negativa.
+
+
+
